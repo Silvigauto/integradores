@@ -71,9 +71,20 @@ def reemplazar_palabras(cadena_texto, primera_palabra, segunda_palabra):
 # del patrón en la cadena principal y devolver una lista con
 # las posiciones donde se encontró el patrón.
 
+#encuentra solo la primera ocurrencia
+# def buscar_patron(cadena_principal, patron):
+#     indice_cadena = cadena_principal.find(patron)
+#     print(indice_cadena)
+#     print(indice_cadena+len(patron))
+    
 def buscar_patron(cadena_principal, patron):
-    for caracter in cadena_principal:
-        if caracter == patron:
-            print(cadena_principal.index(patron))
+    contador = 0
+    lista_coincidencias = []
+    while contador < len(cadena_principal):
+        indice = cadena_principal.find(patron, contador)
+        if indice == -1:
+            break
+        lista_coincidencias.append(indice)
+        contador = indice +1
+    print(lista_coincidencias)
 
-buscar_patron('hhola mundos', 'o')
